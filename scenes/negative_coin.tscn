@@ -1,20 +1,28 @@
-[gd_scene load_steps=10 format=3 uid="uid://c3q2o1lj4bvwu"]
+[gd_scene load_steps=12 format=3 uid="uid://v0l7s1nmcxrv"]
 
-[ext_resource type="Script" uid="uid://xslvylf03egm" path="res://scripts/coin.gd" id="1_i64fm"]
+[ext_resource type="Script" uid="uid://uxp5lmb3tejh" path="res://scripts/negative_coin.gd" id="1_ly17i"]
+[ext_resource type="Texture2D" uid="uid://b6svkdcnx8inu" path="res://assets/sprites/cruiseship.png" id="2_sjp14"]
 [ext_resource type="AudioStream" uid="uid://5ofw0xfsfaym" path="res://assets/sounds/coin.wav" id="3_11l1o"]
-[ext_resource type="Texture2D" uid="uid://bib7w4b1v27b3" path="res://assets/sprites/Air_Balloon.png" id="4_d14el"]
+[ext_resource type="Texture2D" uid="uid://hgeyd3wxo1ic" path="res://assets/sprites/Motorcycle.png" id="3_ly17i"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_11l1o"]
-atlas = ExtResource("4_d14el")
-region = Rect2(0, 0, 84, 117)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ly17i"]
+atlas = ExtResource("2_sjp14")
+region = Rect2(0, 0, 131, 109)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f8orf"]
+atlas = ExtResource("3_ly17i")
+region = Rect2(0, 0, 130, 77)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ls27i"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_11l1o")
+"texture": SubResource("AtlasTexture_ly17i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f8orf")
 }],
-"loop": true,
+"loop": false,
 "name": &"default",
 "speed": 10.0
 }]
@@ -120,15 +128,13 @@ _data = {
 &"pickup": SubResource("Animation_d14el")
 }
 
-[node name="coin" type="Area2D"]
+[node name="negative_coin" type="Area2D"]
 collision_layer = 2
-script = ExtResource("1_i64fm")
+script = ExtResource("1_ly17i")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.0660172, 0.0660172)
 sprite_frames = SubResource("SpriteFrames_ls27i")
-autoplay = "default"
-frame_progress = 0.216553
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ssuvv")
