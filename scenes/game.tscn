@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://cqd7ldsiyju6"]
 
-[ext_resource type="Script" path="res://scripts/platform_manager.gd" id="1_lnu2h"]
+[ext_resource type="Script" uid="uid://bopk8pf470luu" path="res://scripts/platform_manager.gd" id="1_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://tjhp1kl5g3nj" path="res://scenes/platform.tscn" id="1_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://ch4wq8sqxm8gq" path="res://scenes/player.tscn" id="2_lnu2h"]
 [ext_resource type="Script" uid="uid://btcljjbatywte" path="res://scripts/camera_2d.gd" id="3_lnu2h"]
@@ -17,6 +17,7 @@ script = ExtResource("1_lnu2h")
 
 [node name="Player" parent="." instance=ExtResource("2_lnu2h")]
 position = Vector2(-1, -28)
+scale = Vector2(1.51883, 1.51883)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 scale = Vector2(-2.52921, 0.479767)
@@ -25,6 +26,8 @@ drag_vertical_enabled = true
 script = ExtResource("3_lnu2h")
 
 [node name="killzone" parent="Player/Camera2D" instance=ExtResource("4_lbhrr")]
+position = Vector2(0.26032, -134.489)
+scale = Vector2(0.357332, 0.979668)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Camera2D/killzone"]
 position = Vector2(0.790761, 418.953)
@@ -82,7 +85,10 @@ scale = Vector2(2.55549, 3.77174)
 text = "Restart"
 
 [node name="Platform" parent="." instance=ExtResource("1_yqjtg")]
-position = Vector2(-1, 35)
+position = Vector2(-1, 8)
+scale = Vector2(1.41707, 1.41707)
+
+[node name="BackgroundLayer" type="CanvasLayer" parent="."]
 
 [connection signal="pressed" from="GameOver/Panel/Quit" to="GameOver" method="_on_quit_pressed"]
 [connection signal="pressed" from="GameOver/Panel/Restart" to="GameOver" method="_on_restart_pressed"]

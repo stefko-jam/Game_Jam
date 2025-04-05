@@ -20,7 +20,6 @@ func _physics_process(delta: float) -> void:
 	# Detect fresh landing
 	if is_on_floor() and not was_on_floor and !pending_jump:
 		anim_sprite.play("on floor")
-		print("on floor")
 		jump_timer.start()
 		pending_jump = true
 
