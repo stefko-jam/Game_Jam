@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cqd7ldsiyju6"]
 
-[ext_resource type="Script" uid="uid://bopk8pf470luu" path="res://scripts/game.gd" id="1_lbhrr"]
+[ext_resource type="Script" uid="uid://bopk8pf470luu" path="res://scripts/platform_manager.gd" id="1_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://ch4wq8sqxm8gq" path="res://scenes/player.tscn" id="2_lnu2h"]
 [ext_resource type="Script" uid="uid://btcljjbatywte" path="res://scripts/camera_2d.gd" id="3_lnu2h"]
 
@@ -8,7 +8,7 @@
 distance = -55.0
 
 [node name="Game" type="Node2D"]
-script = ExtResource("1_lbhrr")
+script = ExtResource("1_lnu2h")
 
 [node name="Player" parent="." instance=ExtResource("2_lnu2h")]
 position = Vector2(-1, -28)
