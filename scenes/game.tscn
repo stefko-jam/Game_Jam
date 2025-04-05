@@ -6,9 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://ch4wq8sqxm8gq" path="res://scenes/player.tscn" id="2_lnu2h"]
 [ext_resource type="Script" uid="uid://btcljjbatywte" path="res://scripts/camera_2d.gd" id="3_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://c1olrxi60xnlr" path="res://scenes/killzone.tscn" id="4_lbhrr"]
-[ext_resource type="Script" uid="uid://csdka6vyewj31" path="res://scripts/game_over.gd" id="6_p57ef"]
 [ext_resource type="Texture2D" uid="uid://qx3fengl5c6s" path="res://assets/sprites/Background.png" id="7_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://dpifnm2ff81j6" path="res://scenes/main_menu.tscn" id="8_gee14"]
+[ext_resource type="PackedScene" uid="uid://n75x0vagelgt" path="res://scenes/game_over.tscn" id="9_0tnpc"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_iywne"]
 
@@ -76,47 +76,10 @@ position = Vector2(-176, -45)
 rotation = -1.5708
 shape = SubResource("WorldBoundaryShape2D_lnu2h")
 
-[node name="GameOver" type="CanvasLayer" parent="."]
-visible = false
-script = ExtResource("6_p57ef")
-
-[node name="Panel" type="Panel" parent="GameOver"]
-offset_left = 253.0
-offset_top = 397.0
-offset_right = 293.0
-offset_bottom = 437.0
-
-[node name="Game Over" type="Label" parent="GameOver/Panel"]
-layout_mode = 0
-offset_left = -158.0
-offset_top = -244.0
-offset_right = -71.0
-offset_bottom = -221.0
-scale = Vector2(3.8402, 5.17185)
-text = "Game Over"
-
-[node name="Quit" type="Button" parent="GameOver/Panel"]
-layout_mode = 0
-offset_left = -42.0
-offset_top = -107.0
-offset_bottom = -76.0
-scale = Vector2(3.36982, 2.1356)
-text = "Quit"
-
-[node name="Restart" type="Button" parent="GameOver/Panel"]
-layout_mode = 0
-offset_left = -38.0
-offset_top = -8.0
-offset_right = 27.0
-offset_bottom = 23.0
-scale = Vector2(2.55549, 3.77174)
-text = "Restart"
-
 [node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="GameOver" parent="HUD" instance=ExtResource("9_0tnpc")]
 
 [node name="MainMenu" parent="HUD" instance=ExtResource("8_gee14")]
 offset_top = -119.0
 offset_bottom = -119.0
-
-[connection signal="pressed" from="GameOver/Panel/Quit" to="GameOver" method="_on_quit_pressed"]
-[connection signal="pressed" from="GameOver/Panel/Restart" to="GameOver" method="_on_restart_pressed"]

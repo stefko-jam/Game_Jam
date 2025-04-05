@@ -1,19 +1,17 @@
 extends Area2D
 
 #@onready var timer: Timer = $Timer #drag and drop and hold control
-@onready var game_over: CanvasLayer = $"../../../GameOver"
+
+@onready var game_over: Control = $"../../../HUD/GameOver"
 
 
 func _on_body_entered(body: Node2D) -> void:
-	#print("You died!")
-	#Engine.time_scale = 0.5 #we go at half speed
-	#body.get_node("CollisionShape2D").queue_free() #accessing player, getting the collsion shape node and removing it
-	#print("killzone script")
-	#timer.start()
-	if body.name == ("Player"):
-		print ("You died")
-		#body.queue_free()
-		game_over.visible = true
+	if body.name == "Player":
+		print("You died")
+		if game_over:
+			game_over.visible = true
+		else:
+			print("⚠️ GameOver node not found!")
 
 
 #func _on_timer_timeout() -> void:
