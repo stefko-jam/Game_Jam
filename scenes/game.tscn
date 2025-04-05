@@ -36,7 +36,6 @@ texture = ExtResource("7_u5sy4")
 
 [node name="Player" parent="." instance=ExtResource("2_lnu2h")]
 position = Vector2(-1, -28)
-scale = Vector2(1.51883, 1.51883)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 scale = Vector2(-2.52921, 0.479767)
@@ -49,7 +48,7 @@ position = Vector2(0.26032, -134.489)
 scale = Vector2(0.357332, 0.979668)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Camera2D/killzone"]
-position = Vector2(0.790761, 418.953)
+position = Vector2(3.6974, 592.587)
 shape = SubResource("WorldBoundaryShape2D_iywne")
 
 [node name="LeftBoundary" type="StaticBody2D" parent="."]
@@ -105,7 +104,6 @@ text = "Restart"
 
 [node name="Platform" parent="." instance=ExtResource("1_yqjtg")]
 position = Vector2(-1, 8)
-scale = Vector2(1.41707, 1.41707)
 
 [connection signal="pressed" from="GameOver/Panel/Quit" to="GameOver" method="_on_quit_pressed"]
 [connection signal="pressed" from="GameOver/Panel/Restart" to="GameOver" method="_on_restart_pressed"]
