@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dsv3ab4l7jbxq"]
+[gd_scene load_steps=5 format=3 uid="uid://dsv3ab4l7jbxq"]
 
 [ext_resource type="Script" uid="uid://l4jx0vctpq0m" path="res://scenes/generate_platform_test_scene.gd" id="1_6xc3g"]
 [ext_resource type="PackedScene" uid="uid://ch4wq8sqxm8gq" path="res://scenes/player.tscn" id="1_bi44w"]
-[ext_resource type="PackedScene" path="res://scenes/platform.tscn" id="2_lgxac"]
+[ext_resource type="PackedScene" uid="uid://tjhp1kl5g3nj" path="res://scenes/platform.tscn" id="2_lgxac"]
+
+[sub_resource type="GDScript" id="GDScript_ba0x2"]
 
 [node name="GeneratePlatformTestScene" type="Node2D"]
 script = ExtResource("1_6xc3g")
@@ -13,3 +15,4 @@ script = ExtResource("1_6xc3g")
 
 [node name="Platform" parent="." instance=ExtResource("2_lgxac")]
 position = Vector2(0, 36)
+script = SubResource("GDScript_ba0x2")
