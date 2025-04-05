@@ -1,9 +1,18 @@
 extends Area2D
 
-#@onready var game_manager: Node = %GameManager
-#@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@export var animation_player: AnimationPlayer
+@export var game_manager: Node
 
+@export var coin_type: int
+
+func _ready() -> void:
+	#print("ready", %GameManager)
+	$AnimatedSprite2D.frame = coin_type
+	
 
 func _on_body_entered(body: Node2D) -> void:
-	%GameManager.add_point()
-	$AnimationPlayer.animation_player.play("pickup")
+	if game_manager != null:
+		game_manager.add_point()
+		print($AnimationPlayer)
+		print("+ 1 coin")
+		$AnimationPlayer.play("pickup")

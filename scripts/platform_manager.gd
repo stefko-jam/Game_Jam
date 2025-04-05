@@ -56,6 +56,8 @@ func spawnNewPlatform():
 		var coinScene = preload("res://scenes/coin.tscn")
 		var coin = coinScene.instantiate()
 		coin.position = Vector2(0, -10)
+		print(%GameManager)
+		coin.game_manager = %GameManager
 		platform.add_child(coin)
 		
 	add_child(platform)

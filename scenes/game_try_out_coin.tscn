@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://ddcyptx272t0x"]
+
+[ext_resource type="PackedScene" uid="uid://c3q2o1lj4bvwu" path="res://scenes/coin.tscn" id="1_apxg3"]
+[ext_resource type="PackedScene" uid="uid://tjhp1kl5g3nj" path="res://scenes/platform.tscn" id="2_xprje"]
+[ext_resource type="PackedScene" uid="uid://ch4wq8sqxm8gq" path="res://scenes/player.tscn" id="3_xkb3e"]
+[ext_resource type="Script" uid="uid://ce85gl3vbee0a" path="res://scripts/game_manager.gd" id="4_xprje"]
+[ext_resource type="PackedScene" uid="uid://v0l7s1nmcxrv" path="res://scenes/negative_coin.tscn" id="5_xkb3e"]
+
+[node name="Game_TryOut Coin" type="Node2D"]
+position = Vector2(223, 259)
+
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("4_xprje")
+
+[node name="Score" type="Label" parent="GameManager"]
+offset_left = 12.0
+offset_top = 9.0
+offset_right = 52.0
+offset_bottom = 32.0
+metadata/_edit_use_anchors_ = true
+
+[node name="coin" parent="." instance=ExtResource("1_apxg3")]
+position = Vector2(43, -65)
+scale = Vector2(3.37923, 3.37923)
+
+[node name="Platform" parent="." instance=ExtResource("2_xprje")]
+
+[node name="Player" parent="." instance=ExtResource("3_xkb3e")]
+position = Vector2(0, -43)
+
+[node name="Platform2" parent="." instance=ExtResource("2_xprje")]
+position = Vector2(44, -43)
+
+[node name="negative_coin" parent="." instance=ExtResource("5_xkb3e")]
+position = Vector2(94, -65)
+scale = Vector2(4.68001, 4.68001)
+coin_type = 1
+
+[connection signal="body_entered" from="coin" to="Player" method="_on_coin_body_entered"]
