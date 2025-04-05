@@ -4,10 +4,14 @@ var highestPlayerPosition = 0;
 var highestPlatformPostiion = 200;
 var maxDiff = 200;
 var createPlatform = false;
+var createMovingTiles = false;
 
 # LIFECYCLE HOOKS
 func _ready():
 	initializePlatforms()
+	await get_tree().create_timer(5.0).timeout
+	createMovingTiles = true;
+	
 
 func _process(delta: float) -> void:
 	updateHighestPlayerPosition()
@@ -28,9 +32,7 @@ func shouldGeneratePlatform():
 	return abs(highestPlatformPostiion) - abs(highestPlayerPosition) < maxDiff
 	
 func generatePlatform(x: int, y: int) -> Node:
-	print()
-	
-	var sceneType = randi_range(0, 1)
+	var sceneType = randi_range(0, 1 if createMovingTiles else 0)
 	var platformBase = preload("res://scenes/platform.tscn")
 	var platformMoving = preload("res://scenes/platform_moving.tscn")
 	var platform;
