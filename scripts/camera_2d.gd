@@ -7,7 +7,7 @@ func _ready():
 	highest_y = global_position.y
 	fixed_x = global_position.x  # Lock the initial horizontal position
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if get_parent().global_position.y < highest_y:
 		highest_y = get_parent().global_position.y
 
