@@ -16,10 +16,10 @@ func _process(delta):
 	handleDirectionChange();
 	
 func updatePosition(delta):
-	position.x = direction * move_speed * delta;
+	position.x += direction * move_speed * delta;
 	
 func handleDirectionChange():
-	if position.x> start_x + move_distance:
+	if position.x > start_x + move_distance:
 		direction = -1
 	elif position.x < start_x - move_distance:
 		direction = 1
