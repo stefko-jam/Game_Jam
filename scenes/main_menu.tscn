@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://dpifnm2ff81j6"]
+[gd_scene load_steps=4 format=3 uid="uid://dpifnm2ff81j6"]
 
 [ext_resource type="Script" uid="uid://dbkebwmjw0l1k" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+[ext_resource type="Theme" uid="uid://dbik2ws2p45a1" path="res://assets/styles/theme_button.tres" id="2_ekxnf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wu84c"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -36,15 +39,21 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -46.0
-offset_top = -66.0
-offset_right = 46.0
+offset_top = -247.0
+offset_right = 54.0
+offset_bottom = -147.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_constants/separation = 12
 
 [node name="StartButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("2_ekxnf")
+theme_override_icons/icon = SubResource("AtlasTexture_wu84c")
 text = "Start"
+icon_alignment = 1
 
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("2_ekxnf")
 text = "Quit"
