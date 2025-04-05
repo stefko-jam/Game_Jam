@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cqd7ldsiyju6"]
+[gd_scene load_steps=14 format=3 uid="uid://cqd7ldsiyju6"]
 
 [ext_resource type="Script" uid="uid://hkh62gyt3sx" path="res://scripts/game.gd" id="1_gee14"]
 [ext_resource type="Script" uid="uid://bopk8pf470luu" path="res://scripts/platform_manager.gd" id="1_lnu2h"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://qx3fengl5c6s" path="res://assets/sprites/Background.png" id="7_u5sy4"]
 [ext_resource type="PackedScene" path="res://scenes/main_menu.tscn" id="8_gee14"]
 [ext_resource type="PackedScene" path="res://scenes/game_over.tscn" id="9_0tnpc"]
+[ext_resource type="PackedScene" uid="uid://dypkt0kx21wm4" path="res://scenes/pollutometer.tscn" id="9_kvpfn"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_iywne"]
 
@@ -64,12 +65,16 @@ position = Vector2(-1, 8)
 unique_name_in_owner = true
 script = ExtResource("3_vtaks")
 
+[node name="pollutometer" parent="Platforms/GameManager" instance=ExtResource("9_kvpfn")]
+position = Vector2(-77, -210)
+frame = 5
+
 [node name="Score" type="Label" parent="Platforms/GameManager"]
-offset_left = 12.0
-offset_top = 9.0
-offset_right = 52.0
-offset_bottom = 32.0
-scale = Vector2(3.37918, 3.37918)
+offset_left = -117.0
+offset_top = -217.0
+offset_right = -77.0
+offset_bottom = -194.0
+scale = Vector2(1.0833, 1.18283)
 metadata/_edit_use_anchors_ = true
 
 [node name="Boundarys" type="Node" parent="."]

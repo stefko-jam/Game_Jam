@@ -1,0 +1,95 @@
+[gd_scene load_steps=15 format=3 uid="uid://dypkt0kx21wm4"]
+
+[ext_resource type="Texture2D" uid="uid://bwvnhrv085pr" path="res://assets/sprites/pollutometer/Polutometerallstates.png" id="1_g2h77"]
+[ext_resource type="Script" uid="uid://f1gue6a0y1bc" path="res://scripts/pollutometer.gd" id="1_j8b61"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j8b61"]
+atlas = ExtResource("1_g2h77")
+region = Rect2(128, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sxemr"]
+atlas = ExtResource("1_g2h77")
+region = Rect2(64, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s4j3g"]
+atlas = ExtResource("1_g2h77")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kchi6"]
+atlas = ExtResource("1_g2h77")
+region = Rect2(192, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mvt3h"]
+atlas = ExtResource("1_g2h77")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3c5ny"]
+atlas = ExtResource("1_g2h77")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mrb8i"]
+atlas = ExtResource("1_g2h77")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ut6l"]
+atlas = ExtResource("1_g2h77")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tw64p"]
+atlas = ExtResource("1_g2h77")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j3ilm"]
+atlas = ExtResource("1_g2h77")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tixpd"]
+atlas = ExtResource("1_g2h77")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oyrlq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j8b61")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sxemr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s4j3g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kchi6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mvt3h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3c5ny")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mrb8i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ut6l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tw64p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j3ilm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tixpd")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="pollutometer" type="Node2D"]
+script = ExtResource("1_j8b61")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_oyrlq")
