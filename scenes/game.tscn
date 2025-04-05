@@ -50,22 +50,6 @@ script = ExtResource("1_lnu2h")
 [node name="Platform" parent="Platforms" instance=ExtResource("1_yqjtg")]
 position = Vector2(-1, 16)
 
-[node name="GameManager" type="Node" parent="Platforms"]
-unique_name_in_owner = true
-script = ExtResource("3_vtaks")
-
-[node name="pollutometer" parent="Platforms/GameManager" instance=ExtResource("9_kvpfn")]
-position = Vector2(-77, -210)
-frame = 5
-
-[node name="Score" type="Label" parent="Platforms/GameManager"]
-offset_left = -117.0
-offset_top = -217.0
-offset_right = -77.0
-offset_bottom = -194.0
-scale = Vector2(1.0833, 1.18283)
-metadata/_edit_use_anchors_ = true
-
 [node name="Boundarys" type="Node" parent="."]
 
 [node name="LeftBoundary" type="StaticBody2D" parent="Boundarys"]
@@ -103,6 +87,23 @@ shape = SubResource("WorldBoundaryShape2D_iywne")
 [node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="GameOver" parent="HUD" instance=ExtResource("9_0tnpc")]
+
+[node name="GameManager" type="Node" parent="HUD"]
+unique_name_in_owner = true
+script = ExtResource("3_vtaks")
+
+[node name="pollutometer" parent="HUD/GameManager" instance=ExtResource("9_kvpfn")]
+position = Vector2(76, 28)
+scale = Vector2(1.89608, 1.89608)
+frame = 5
+
+[node name="Score" type="Label" parent="HUD/GameManager"]
+offset_left = -117.0
+offset_top = -217.0
+offset_right = -77.0
+offset_bottom = -194.0
+scale = Vector2(1.0833, 1.18283)
+metadata/_edit_use_anchors_ = true
 
 [node name="MainMenu" parent="HUD" instance=ExtResource("8_gee14")]
 offset_top = -119.0
