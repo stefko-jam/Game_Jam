@@ -12,12 +12,14 @@ func _ready():
 		direction = -1
 
 func _process(delta):
-	print("process")
-	var xdiff = direction * move_speed * delta;
-	position.x += xdiff
-
+	updatePosition(delta);
+	handleDirectionChange();
+	
+func updatePosition(delta):
+	position.x = direction * move_speed * delta;
+	
+func handleDirectionChange():
 	if position.x> start_x + move_distance:
 		direction = -1
 	elif position.x < start_x - move_distance:
 		direction = 1
-		
