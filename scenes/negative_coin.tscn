@@ -1,9 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://v0l7s1nmcxrv"]
+[gd_scene load_steps=16 format=3 uid="uid://v0l7s1nmcxrv"]
 
 [ext_resource type="Script" uid="uid://uxp5lmb3tejh" path="res://scripts/negative_coin.gd" id="1_ly17i"]
 [ext_resource type="Texture2D" uid="uid://b6svkdcnx8inu" path="res://assets/sprites/cruiseship.png" id="2_sjp14"]
 [ext_resource type="AudioStream" uid="uid://5ofw0xfsfaym" path="res://assets/sounds/coin.wav" id="3_11l1o"]
 [ext_resource type="Texture2D" uid="uid://hgeyd3wxo1ic" path="res://assets/sprites/Motorcycle.png" id="3_ly17i"]
+[ext_resource type="Texture2D" uid="uid://dblg3c1qobo24" path="res://assets/sprites/plane.png" id="4_kww2p"]
+[ext_resource type="Texture2D" uid="uid://bw2ypanmehbx4" path="res://assets/sprites/sportscar.png" id="5_0jfv2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ly17i"]
 atlas = ExtResource("2_sjp14")
@@ -13,6 +15,14 @@ region = Rect2(0, 0, 131, 109)
 atlas = ExtResource("3_ly17i")
 region = Rect2(0, 0, 130, 77)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_wo5qr"]
+atlas = ExtResource("4_kww2p")
+region = Rect2(0, 0, 132, 67)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fkkt2"]
+atlas = ExtResource("5_0jfv2")
+region = Rect2(0, 0, 134, 34)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_ls27i"]
 animations = [{
 "frames": [{
@@ -21,6 +31,12 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_f8orf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wo5qr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fkkt2")
 }],
 "loop": false,
 "name": &"default",
@@ -133,10 +149,13 @@ collision_layer = 2
 script = ExtResource("1_ly17i")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.0660172, 0.0660172)
+position = Vector2(0, -6)
+scale = Vector2(0.115409, 0.115409)
 sprite_frames = SubResource("SpriteFrames_ls27i")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -5)
+scale = Vector2(1.47364, 1.55348)
 shape = SubResource("CircleShape2D_ssuvv")
 
 [node name="PickUpSound" type="AudioStreamPlayer2D" parent="."]
