@@ -29,10 +29,18 @@ func shouldGeneratePlatform():
 	
 func generatePlatform(x: int, y: int) -> Node:
 	print()
-	var PlatformScene = preload("res://scenes/platform.tscn")
-	var platform = PlatformScene.instantiate()
-	platform.position = Vector2(x, y)
-	return platform
+	
+	var sceneType = randi_range(0, 1)
+	var platformBase = preload("res://scenes/platform.tscn")
+	var platformMoving = preload("res://scenes/platform_moving.tscn")
+	var platform;
+	if sceneType == 0:
+		platform = platformBase
+	if sceneType == 1:
+		platform = platformMoving;
+	var instance = platform.instantiate()
+	instance.position = Vector2(x, y)
+	return instance
 
 func spawnNewPlatform():
 	var x = randi_range(-100, 100)
