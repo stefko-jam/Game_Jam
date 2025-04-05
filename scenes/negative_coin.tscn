@@ -149,8 +149,8 @@ collision_layer = 2
 script = ExtResource("1_ly17i")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -6)
-scale = Vector2(0.115409, 0.115409)
+position = Vector2(-1, -13)
+scale = Vector2(0.186532, 0.186532)
 sprite_frames = SubResource("SpriteFrames_ls27i")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

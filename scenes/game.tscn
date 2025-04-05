@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cqd7ldsiyju6"]
+[gd_scene load_steps=15 format=3 uid="uid://cqd7ldsiyju6"]
 
 [ext_resource type="Script" uid="uid://hkh62gyt3sx" path="res://scripts/game.gd" id="1_gee14"]
 [ext_resource type="Script" uid="uid://bopk8pf470luu" path="res://scripts/platform_manager.gd" id="1_lnu2h"]
@@ -8,8 +8,8 @@
 [ext_resource type="Script" uid="uid://ce85gl3vbee0a" path="res://scripts/game_manager.gd" id="3_vtaks"]
 [ext_resource type="PackedScene" uid="uid://c1olrxi60xnlr" path="res://scenes/killzone.tscn" id="4_lbhrr"]
 [ext_resource type="Texture2D" uid="uid://qx3fengl5c6s" path="res://assets/sprites/Background.png" id="7_u5sy4"]
-[ext_resource type="PackedScene" path="res://scenes/main_menu.tscn" id="8_gee14"]
-[ext_resource type="PackedScene" path="res://scenes/game_over.tscn" id="9_0tnpc"]
+[ext_resource type="PackedScene" uid="uid://dpifnm2ff81j6" path="res://scenes/main_menu.tscn" id="8_gee14"]
+[ext_resource type="PackedScene" uid="uid://n75x0vagelgt" path="res://scenes/game_over.tscn" id="9_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://dypkt0kx21wm4" path="res://scenes/pollutometer.tscn" id="9_kvpfn"]
 
 [sub_resource type="TileSet" id="TileSet_0tnpc"]
