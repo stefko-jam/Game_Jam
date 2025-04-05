@@ -10,4 +10,4 @@ func _unhandled_input(event):
 		print("Pause menu is currently disabled.")
 
 func enable_player_input():
-	player.enable_input()
+	player.enable_input()  # ❌ This is incorrect
