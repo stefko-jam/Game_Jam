@@ -48,4 +48,14 @@ func spawnNewPlatform():
 	var x = randi_range(-100, 100)
 	var y = highestPlatformPostiion - randi_range(2, 10) * 7
 	highestPlatformPostiion = y;
-	add_child(generatePlatform(x, y))
+	var platform = generatePlatform(x, y)
+
+	var createCoin = randi_range(0, 2) == 1;
+	if (createCoin):
+		var coinScene = preload("res://scenes/coin.tscn")
+		var coin = coinScene.instantiate()
+		coin.position = Vector2(0, -10)
+		platform.add_child(coin)
+		
+	add_child(platform)
+	
