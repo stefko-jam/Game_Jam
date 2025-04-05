@@ -1,8 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://cqd7ldsiyju6"]
+[gd_scene load_steps=7 format=3 uid="uid://cqd7ldsiyju6"]
 
-[ext_resource type="Script" uid="uid://bopk8pf470luu" path="res://scripts/platform_manager.gd" id="1_lnu2h"]
+[ext_resource type="Script" path="res://scripts/platform_manager.gd" id="1_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://ch4wq8sqxm8gq" path="res://scenes/player.tscn" id="2_lnu2h"]
 [ext_resource type="Script" uid="uid://btcljjbatywte" path="res://scripts/camera_2d.gd" id="3_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://c1olrxi60xnlr" path="res://scenes/killzone.tscn" id="4_lbhrr"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_iywne"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lnu2h"]
 distance = -55.0
@@ -19,6 +22,12 @@ zoom = Vector2(2, 2)
 drag_vertical_enabled = true
 script = ExtResource("3_lnu2h")
 
+[node name="killzone" parent="Player/Camera2D" instance=ExtResource("4_lbhrr")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Camera2D/killzone"]
+position = Vector2(0.790761, 418.953)
+shape = SubResource("WorldBoundaryShape2D_iywne")
+
 [node name="LeftBoundary" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftBoundary"]
@@ -32,10 +41,4 @@ position = Vector2(241, -1)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightBoundary"]
 position = Vector2(-176, -45)
 rotation = -1.5708
-shape = SubResource("WorldBoundaryShape2D_lnu2h")
-
-[node name="Killzone" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
-position = Vector2(0, 114)
 shape = SubResource("WorldBoundaryShape2D_lnu2h")
