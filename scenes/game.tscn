@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ch4wq8sqxm8gq" path="res://scenes/player.tscn" id="2_lnu2h"]
 [ext_resource type="Script" uid="uid://btcljjbatywte" path="res://scripts/camera_2d.gd" id="3_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://c1olrxi60xnlr" path="res://scenes/killzone.tscn" id="4_lbhrr"]
-[ext_resource type="Script" uid="uid://csdka6vyewj31" path="res://scripts/game_over_ui.gd" id="6_p57ef"]
+[ext_resource type="Script" uid="uid://csdka6vyewj31" path="res://scripts/game_over.gd" id="6_p57ef"]
 [ext_resource type="Texture2D" uid="uid://qx3fengl5c6s" path="res://assets/sprites/Background.png" id="7_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://dpifnm2ff81j6" path="res://scenes/main_menu.tscn" id="8_gee14"]
 

@@ -25,7 +25,7 @@ func initializePlatforms():
 func updateHighestPlayerPosition():
 	#var game = get_tree().get_root().find_node("Platforms", true, false)
 	#if game:
-		var player = get_node("Player")
+		var player = get_parent().get_node("Player")
 		if player and player.position.y < highestPlayerPosition:
 			highestPlayerPosition = player.position.y
 
