@@ -54,9 +54,16 @@ func spawnNewPlatform():
 	var createCoin = randi_range(0, 2) == 1;
 	if (createCoin):
 		var coinScene = preload("res://scenes/coin.tscn")
-		var coin = coinScene.instantiate()
+		var negativeCoinScene = preload("res://scenes/negative_coin.tscn")
+		var coin;
+		if (randi_range(0, 1) == 1):
+			coin = coinScene.instantiate()
+		else:
+			coin = negativeCoinScene.instantiate()
+		
+		#randi_range(0, 1) == 1 if coinScene.instantiate() else negativeCoinScene.instantiate();
 		coin.position = Vector2(0, -10)
-		print(%GameManager)
+		coin.coin_type = randi_range(0, 4)
 		coin.game_manager = %GameManager
 		platform.add_child(coin)
 		
