@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cqd7ldsiyju6"]
+[gd_scene load_steps=13 format=3 uid="uid://cqd7ldsiyju6"]
 
 [ext_resource type="Script" uid="uid://hkh62gyt3sx" path="res://scripts/game.gd" id="1_gee14"]
 [ext_resource type="Script" uid="uid://bopk8pf470luu" path="res://scripts/platform_manager.gd" id="1_lnu2h"]
@@ -10,13 +10,19 @@
 [ext_resource type="PackedScene" uid="uid://dpifnm2ff81j6" path="res://scenes/main_menu.tscn" id="8_gee14"]
 [ext_resource type="PackedScene" uid="uid://n75x0vagelgt" path="res://scenes/game_over.tscn" id="9_0tnpc"]
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_iywne"]
+[sub_resource type="TileSet" id="TileSet_0tnpc"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lnu2h"]
 distance = -55.0
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_iywne"]
+
 [node name="Game" type="Node2D"]
 script = ExtResource("1_gee14")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_0tnpc")
+format = 2
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -100
@@ -36,28 +42,11 @@ grow_vertical = 2
 scale = Vector2(0.458339, 0.458339)
 texture = ExtResource("7_u5sy4")
 
-[node name="Player" parent="." instance=ExtResource("2_lnu2h")]
-position = Vector2(-1, -28)
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-scale = Vector2(-2.52921, 0.479767)
-zoom = Vector2(2, 2)
-drag_vertical_enabled = true
-script = ExtResource("3_lnu2h")
-
-[node name="killzone" parent="Player/Camera2D" instance=ExtResource("4_lbhrr")]
-position = Vector2(0.26032, -134.489)
-scale = Vector2(0.357332, 0.979668)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Camera2D/killzone"]
-position = Vector2(8.12332, 633.012)
-shape = SubResource("WorldBoundaryShape2D_iywne")
-
 [node name="Platforms" type="Node2D" parent="."]
 script = ExtResource("1_lnu2h")
 
 [node name="Platform" parent="Platforms" instance=ExtResource("1_yqjtg")]
-position = Vector2(-1, 8)
+position = Vector2(-1, 16)
 
 [node name="Boundarys" type="Node" parent="."]
 
@@ -75,6 +64,23 @@ position = Vector2(241, -1)
 position = Vector2(-176, -45)
 rotation = -1.5708
 shape = SubResource("WorldBoundaryShape2D_lnu2h")
+
+[node name="Player" parent="." instance=ExtResource("2_lnu2h")]
+position = Vector2(-1, -28)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+scale = Vector2(-2.52921, 0.479767)
+zoom = Vector2(2, 2)
+drag_vertical_enabled = true
+script = ExtResource("3_lnu2h")
+
+[node name="killzone" parent="Player/Camera2D" instance=ExtResource("4_lbhrr")]
+position = Vector2(0.26032, -134.489)
+scale = Vector2(0.357332, 0.979668)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Camera2D/killzone"]
+position = Vector2(8.12332, 633.012)
+shape = SubResource("WorldBoundaryShape2D_iywne")
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
