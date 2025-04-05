@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://cqd7ldsiyju6"]
+[gd_scene load_steps=9 format=3 uid="uid://cqd7ldsiyju6"]
 
 [ext_resource type="Script" path="res://scripts/platform_manager.gd" id="1_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://tjhp1kl5g3nj" path="res://scenes/platform.tscn" id="1_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://ch4wq8sqxm8gq" path="res://scenes/player.tscn" id="2_lnu2h"]
 [ext_resource type="Script" uid="uid://btcljjbatywte" path="res://scripts/camera_2d.gd" id="3_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://c1olrxi60xnlr" path="res://scenes/killzone.tscn" id="4_lbhrr"]
@@ -72,12 +73,16 @@ scale = Vector2(3.36982, 2.1356)
 text = "Quit"
 
 [node name="Restart" type="Button" parent="GameOver/Panel"]
+layout_mode = 0
 offset_left = -38.0
 offset_top = -8.0
 offset_right = 27.0
 offset_bottom = 23.0
 scale = Vector2(2.55549, 3.77174)
 text = "Restart"
+
+[node name="Platform" parent="." instance=ExtResource("1_yqjtg")]
+position = Vector2(-1, 35)
 
 [connection signal="pressed" from="GameOver/Panel/Quit" to="GameOver" method="_on_quit_pressed"]
 [connection signal="pressed" from="GameOver/Panel/Restart" to="GameOver" method="_on_restart_pressed"]
