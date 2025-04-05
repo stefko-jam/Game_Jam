@@ -1,6 +1,7 @@
 extends Area2D
 
 #@onready var timer: Timer = $Timer #drag and drop and hold control
+@onready var game_over: CanvasLayer = $"../../../GameOver"
 
 
 func _on_body_entered(body: Node2D) -> void:
@@ -12,7 +13,7 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.name == ("Player"):
 		print ("You died")
 		#body.queue_free()
-		#game_over_ui.visible = true
+		game_over.visible = true
 
 
 #func _on_timer_timeout() -> void:
