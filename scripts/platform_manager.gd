@@ -46,6 +46,6 @@ func generatePlatform(x: int, y: int) -> Node:
 
 func spawnNewPlatform():
 	var x = randi_range(-100, 100)
-	var y = highestPlatformPostiion - randi_range(2, 10) * 10
+	var y = highestPlatformPostiion - randi_range(2, 10) * 7
 	highestPlatformPostiion = y;
 	add_child(generatePlatform(x, y))
