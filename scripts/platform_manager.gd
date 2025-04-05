@@ -47,11 +47,11 @@ func generatePlatform(x: int, y: int) -> Node:
 
 func spawnNewPlatform():
 	var x = randi_range(-100, 100)
-	var y = highestPlatformPostiion - randi_range(2, 10) * 7
+	var y = highestPlatformPostiion - randi_range(2, 10) * 6
 	highestPlatformPostiion = y;
 	var platform = generatePlatform(x, y)
 
-	var createCoin = randi_range(0, 2) == 1;
+	var createCoin = randi_range(0, 3) == 1;
 	if (createCoin):
 		var coinScene = preload("res://scenes/coin.tscn")
 		var negativeCoinScene = preload("res://scenes/negative_coin.tscn")
