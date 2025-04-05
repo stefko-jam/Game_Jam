@@ -1,5 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://cqd7ldsiyju6"]
+[gd_scene load_steps=12 format=3 uid="uid://cqd7ldsiyju6"]
 
+[ext_resource type="Script" uid="uid://hkh62gyt3sx" path="res://scripts/game.gd" id="1_gee14"]
 [ext_resource type="Script" uid="uid://bopk8pf470luu" path="res://scripts/platform_manager.gd" id="1_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://tjhp1kl5g3nj" path="res://scenes/platform.tscn" id="1_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://ch4wq8sqxm8gq" path="res://scenes/player.tscn" id="2_lnu2h"]
@@ -15,7 +16,7 @@
 distance = -55.0
 
 [node name="Game" type="Node2D"]
-script = ExtResource("1_lnu2h")
+script = ExtResource("1_gee14")
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -100
@@ -52,23 +53,28 @@ scale = Vector2(0.357332, 0.979668)
 position = Vector2(8.12332, 633.012)
 shape = SubResource("WorldBoundaryShape2D_iywne")
 
-[node name="LeftBoundary" type="StaticBody2D" parent="."]
+[node name="Platforms" type="Node2D" parent="."]
+script = ExtResource("1_lnu2h")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftBoundary"]
+[node name="Platform" parent="Platforms" instance=ExtResource("1_yqjtg")]
+position = Vector2(-1, 8)
+
+[node name="Boundarys" type="Node" parent="."]
+
+[node name="LeftBoundary" type="StaticBody2D" parent="Boundarys"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundarys/LeftBoundary"]
 position = Vector2(-66, -44)
 rotation = 1.5708
 shape = SubResource("WorldBoundaryShape2D_lnu2h")
 
-[node name="RightBoundary" type="StaticBody2D" parent="."]
+[node name="RightBoundary" type="StaticBody2D" parent="Boundarys"]
 position = Vector2(241, -1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RightBoundary"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundarys/RightBoundary"]
 position = Vector2(-176, -45)
 rotation = -1.5708
 shape = SubResource("WorldBoundaryShape2D_lnu2h")
-
-[node name="Platform" parent="." instance=ExtResource("1_yqjtg")]
-position = Vector2(-1, 8)
 
 [node name="GameOver" type="CanvasLayer" parent="."]
 visible = false
@@ -109,6 +115,8 @@ text = "Restart"
 [node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="MainMenu" parent="HUD" instance=ExtResource("8_gee14")]
+offset_top = -119.0
+offset_bottom = -119.0
 
 [connection signal="pressed" from="GameOver/Panel/Quit" to="GameOver" method="_on_quit_pressed"]
 [connection signal="pressed" from="GameOver/Panel/Restart" to="GameOver" method="_on_restart_pressed"]

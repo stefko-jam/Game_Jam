@@ -10,7 +10,6 @@ func _ready():
 func _on_start_pressed():
 	hide()
 	get_tree().root.get_node("Game").enable_player_input()
-	
 
 func _on_quit_pressed():
 	get_tree().quit()
