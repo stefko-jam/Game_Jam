@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cqd7ldsiyju6"]
+[gd_scene load_steps=10 format=3 uid="uid://cqd7ldsiyju6"]
 
 [ext_resource type="Script" uid="uid://bopk8pf470luu" path="res://scripts/platform_manager.gd" id="1_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://tjhp1kl5g3nj" path="res://scenes/platform.tscn" id="1_yqjtg"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://btcljjbatywte" path="res://scripts/camera_2d.gd" id="3_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://c1olrxi60xnlr" path="res://scenes/killzone.tscn" id="4_lbhrr"]
 [ext_resource type="Script" uid="uid://csdka6vyewj31" path="res://scripts/game_over_ui.gd" id="6_p57ef"]
+[ext_resource type="Texture2D" uid="uid://qx3fengl5c6s" path="res://assets/sprites/Background.png" id="7_u5sy4"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_iywne"]
 
@@ -14,6 +15,24 @@ distance = -55.0
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_lnu2h")
+
+[node name="BackgroundLayer" type="CanvasLayer" parent="."]
+layer = -100
+
+[node name="Background" type="TextureRect" parent="BackgroundLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = -400.0
+offset_right = 840.0
+offset_bottom = 1520.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.458339, 0.458339)
+texture = ExtResource("7_u5sy4")
 
 [node name="Player" parent="." instance=ExtResource("2_lnu2h")]
 position = Vector2(-1, -28)
@@ -87,8 +106,6 @@ text = "Restart"
 [node name="Platform" parent="." instance=ExtResource("1_yqjtg")]
 position = Vector2(-1, 8)
 scale = Vector2(1.41707, 1.41707)
-
-[node name="BackgroundLayer" type="CanvasLayer" parent="."]
 
 [connection signal="pressed" from="GameOver/Panel/Quit" to="GameOver" method="_on_quit_pressed"]
 [connection signal="pressed" from="GameOver/Panel/Restart" to="GameOver" method="_on_restart_pressed"]
