@@ -17,6 +17,8 @@ func _on_quit_pressed() -> void:
 #connected to retry button
 func _on_restart_pressed() -> void:
 	get_tree().reload_current_scene()
+	AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), false)  # unmute
+	#$MusicPlayer.play()
 
 func _process(delta: float) -> void:
 	var player_position = %Player.position.y +28
