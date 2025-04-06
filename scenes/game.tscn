@@ -141,6 +141,13 @@ offset_bottom = -119.0
 unique_name_in_owner = true
 script = ExtResource("3_vtaks")
 
+[node name="Pollution" type="AnimatedSprite2D" parent="HUD/GameManager"]
+visible = false
+modulate = Color(1, 1, 1, 0.85098)
+position = Vector2(244, 406)
+scale = Vector2(0.11246, 0.11246)
+sprite_frames = SubResource("SpriteFrames_trtic")
+
 [node name="pollutometer" parent="HUD/GameManager" instance=ExtResource("9_kvpfn")]
 position = Vector2(177, 27)
 scale = Vector2(4.57227, 4.57227)
@@ -154,10 +161,3 @@ offset_bottom = 47.0
 scale = Vector2(1.84017, 2.00924)
 text = "Test"
 metadata/_edit_use_anchors_ = true
-
-[node name="Pollution" type="AnimatedSprite2D" parent="HUD/GameManager"]
-visible = false
-modulate = Color(1, 1, 1, 0.85098)
-position = Vector2(244, 406)
-scale = Vector2(0.11246, 0.11246)
-sprite_frames = SubResource("SpriteFrames_trtic")

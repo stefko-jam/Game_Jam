@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var move_distance: float = 100
-@export var move_speed: float = 100
+@export var move_speed: float = 60
 
 var direction := 1
 var start_x := 0.0
@@ -11,7 +11,7 @@ func _ready():
 	if (randf() > 0.5):
 		direction = -1
 
-func _process(delta):
+func _physics_process(delta: float) -> void:
 	updatePosition(delta);
 	handleDirectionChange();
 	
