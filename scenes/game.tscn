@@ -49,6 +49,7 @@ script = ExtResource("1_lnu2h")
 
 [node name="Platform" parent="Platforms" instance=ExtResource("1_yqjtg")]
 position = Vector2(-1, 16)
+script = null
 
 [node name="Boundarys" type="Node" parent="."]
 
@@ -81,7 +82,7 @@ position = Vector2(0.26032, -134.489)
 scale = Vector2(0.357332, 0.979668)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Camera2D/killzone"]
-position = Vector2(8.12332, 633.012)
+position = Vector2(8.12332, 645.777)
 shape = SubResource("WorldBoundaryShape2D_iywne")
 
 [node name="HUD" type="CanvasLayer" parent="."]
@@ -99,9 +100,9 @@ frame = 5
 
 [node name="Score" type="Label" parent="HUD/GameManager"]
 offset_left = -117.0
-offset_top = -217.0
+offset_top = -209.0
 offset_right = -77.0
-offset_bottom = -194.0
+offset_bottom = -186.0
 scale = Vector2(1.0833, 1.18283)
 metadata/_edit_use_anchors_ = true
 

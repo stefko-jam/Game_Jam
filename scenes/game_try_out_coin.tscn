@@ -25,12 +25,14 @@ position = Vector2(43, -65)
 scale = Vector2(3.37923, 3.37923)
 
 [node name="Platform" parent="." instance=ExtResource("2_xprje")]
+script = null
 
 [node name="Player" parent="." instance=ExtResource("3_xkb3e")]
 position = Vector2(0, -43)
 
 [node name="Platform2" parent="." instance=ExtResource("2_xprje")]
 position = Vector2(44, -43)
+script = null
 
 [node name="negative_coin" parent="." instance=ExtResource("5_xkb3e")]
 position = Vector2(94, -65)
