@@ -22,6 +22,7 @@ func _physics_process(delta: float) -> void:
 	# Detect fresh landing
 	if input_enabled and is_on_floor() and not was_on_floor and !pending_jump:
 		anim_sprite.play("on floor")
+		$sound_frog.play()
 		jump_timer.start()
 		pending_jump = true
 	
