@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cqd7ldsiyju6"]
+[gd_scene load_steps=24 format=3 uid="uid://cqd7ldsiyju6"]
 
 [ext_resource type="Script" uid="uid://hkh62gyt3sx" path="res://scripts/game.gd" id="1_gee14"]
 [ext_resource type="Script" uid="uid://bopk8pf470luu" path="res://scripts/platform_manager.gd" id="1_lnu2h"]
@@ -11,7 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://dpifnm2ff81j6" path="res://scenes/main_menu.tscn" id="8_gee14"]
 [ext_resource type="PackedScene" uid="uid://n75x0vagelgt" path="res://scenes/game_over.tscn" id="9_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://dypkt0kx21wm4" path="res://scenes/pollutometer.tscn" id="9_kvpfn"]
-[ext_resource type="Texture2D" uid="uid://og58767e3hhf" path="res://assets/sprites/death_screen.png" id="12_dinhu"]
+[ext_resource type="Texture2D" uid="uid://drah0ic7c4068" path="res://assets/sprites/Polution_oil_stain_screen1.png" id="11_ir15t"]
+[ext_resource type="Texture2D" uid="uid://chhw2gahxwmkr" path="res://assets/sprites/Polution_oil_stain_screen4.png" id="11_kvuet"]
+[ext_resource type="Texture2D" uid="uid://dtimhjlqq1cum" path="res://assets/sprites/Polution_oil_stain_screen2.png" id="12_ca42v"]
+[ext_resource type="Texture2D" uid="uid://dgifrcimxnxqe" path="res://assets/sprites/Polution_oil_stain_screen3.png" id="13_rysoc"]
 
 [sub_resource type="TileSet" id="TileSet_0tnpc"]
 
@@ -20,24 +23,39 @@ distance = -55.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_iywne"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kvuet"]
-atlas = ExtResource("12_dinhu")
-region = Rect2(0, 0, 128, 128)
+[sub_resource type="AtlasTexture" id="AtlasTexture_trtic"]
+atlas = ExtResource("11_kvuet")
+region = Rect2(0, 0, 4511, 8060)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1kice"]
+atlas = ExtResource("13_rysoc")
+region = Rect2(0, 0, 4527, 8019)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_264po"]
+atlas = ExtResource("12_ca42v")
+region = Rect2(0, 0, 4526, 8019)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ssvqc"]
+atlas = ExtResource("11_ir15t")
+region = Rect2(0, 0, 4503, 8019)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_trtic"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_kvuet")
+"texture": SubResource("AtlasTexture_trtic")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_kvuet")
+"texture": SubResource("AtlasTexture_1kice")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_kvuet")
+"texture": SubResource("AtlasTexture_264po")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_kvuet")
+"texture": SubResource("AtlasTexture_264po")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ssvqc")
 }],
 "loop": true,
 "name": &"default",
@@ -113,6 +131,10 @@ shape = SubResource("WorldBoundaryShape2D_iywne")
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
+[node name="MainMenu" parent="HUD" instance=ExtResource("8_gee14")]
+offset_top = -119.0
+offset_bottom = -119.0
+
 [node name="GameOver" parent="HUD" instance=ExtResource("9_0tnpc")]
 
 [node name="GameManager" type="Node" parent="HUD"]
@@ -135,11 +157,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Pollution" type="AnimatedSprite2D" parent="HUD/GameManager"]
 visible = false
-modulate = Color(1, 1, 1, 0.133333)
-position = Vector2(242, 340)
-scale = Vector2(1.62775, 1.62775)
+modulate = Color(1, 1, 1, 0.85098)
+position = Vector2(244, 406)
+scale = Vector2(0.11246, 0.11246)
 sprite_frames = SubResource("SpriteFrames_trtic")
-
-[node name="MainMenu" parent="HUD" instance=ExtResource("8_gee14")]
-offset_top = -119.0
-offset_bottom = -119.0
