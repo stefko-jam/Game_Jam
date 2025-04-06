@@ -12,27 +12,25 @@ func _process(delta: float) -> void:
 
 
 func add_point():
-	score += 1
-	$pollutometer.frame = score
-	
-	if score == 7:
-		score = 5
-		$pollutometer.frame = score
-		%Player.JUMP_VELOCITY = -800
-		
-		# Start a 7-second timer
-		await get_tree().create_timer(7.0).timeout
-		
-		# Reset jump velocity after 7 seconds
-		%Player.JUMP_VELOCITY = -400
-
+	score = min(score + 1, 11) 
+	handleChange()
 
 func substract_point():
-	score -= 1
-	$pollutometer.frame = score
-	if score == 0:
+	score = max(score - 1,0) 
+	handleChange()
+		
+func handleChange():
+	if score < 5:
+		$Pollution.frame = score
+		$Pollution.visible = true
+	if score >= 5:
+		$Pollution.visible = false
+	if score == 11:
 		score = 5
-		$pollutometer.frame = score
-
-
-#To Do: Health Bar with Score. Health Bar Frame 1, 2, 3 then if it reaches max you neutralise it
+		handleBoost()
+	$pollutometer.frame = score
+		
+func handleBoost():
+	%Player.JUMP_VELOCITY = -800
+	await get_tree().create_timer(7.0).timeout
+	%Player.JUMP_VELOCITY = -400 # reset
