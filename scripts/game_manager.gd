@@ -9,6 +9,7 @@ func _process(delta: float) -> void:
 	if player_position < highscore:
 		highscore = player_position
 	score_label.text = str(abs(int(highscore)))
+	
 
 
 func add_point():

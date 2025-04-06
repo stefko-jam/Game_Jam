@@ -6,9 +6,12 @@ extends Area2D
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
-		print("You died")
 		$dead_frog.play()
+		print("You died")	
 		if game_over:
+			body.visible = false
+			await get_tree().create_timer(1.0).timeout
+			AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), true)
 			game_over.visible = true
 		else:
 			print("⚠️ GameOver node not found!")

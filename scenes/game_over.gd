@@ -3,6 +3,7 @@ extends Control
 @onready var restart_button: Button = $HBoxContainer/RestartButton
 @onready var quit_button: Button = $HBoxContainer/QuitButton
 
+var highscore:int
 
 func _ready():
 	visible = false  # hide the game over menu on start
@@ -16,3 +17,9 @@ func _on_quit_pressed() -> void:
 #connected to retry button
 func _on_restart_pressed() -> void:
 	get_tree().reload_current_scene()
+
+func _process(delta: float) -> void:
+	var player_position = %Player.position.y +28
+	if player_position < highscore:
+		highscore = player_position
+	$HighscoreLabel.text = "Your highscore: " + str(abs(int(highscore)))
