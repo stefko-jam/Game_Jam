@@ -22,4 +22,4 @@ func _process(delta: float) -> void:
 	var player_position = %Player.position.y +28
 	if player_position < highscore:
 		highscore = player_position
-	$HighscoreLabel.text = "Your highscore: " + str(abs(int(highscore)))
+	$HighscoreLabel.text = "Highscore: " + str(abs(int(highscore)))

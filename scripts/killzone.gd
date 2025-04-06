@@ -10,7 +10,7 @@ func _on_body_entered(body: Node2D) -> void:
 		print("You died")	
 		if game_over:
 			body.visible = false
-			await get_tree().create_timer(1.0).timeout
+			await get_tree().create_timer(0.5).timeout
 			AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), true)
 			game_over.visible = true
 		else:
