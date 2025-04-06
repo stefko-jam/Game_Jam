@@ -14,9 +14,18 @@ func _process(delta: float) -> void:
 func add_point():
 	score += 1
 	$pollutometer.frame = score
-	if score == 11:
+	
+	if score == 7:
 		score = 5
 		$pollutometer.frame = score
+		%Player.JUMP_VELOCITY = -800
+		
+		# Start a 7-second timer
+		await get_tree().create_timer(7.0).timeout
+		
+		# Reset jump velocity after 7 seconds
+		%Player.JUMP_VELOCITY = -400
+
 
 func substract_point():
 	score -= 1

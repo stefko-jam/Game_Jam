@@ -95,8 +95,8 @@ unique_name_in_owner = true
 script = ExtResource("3_vtaks")
 
 [node name="pollutometer" parent="HUD/GameManager" instance=ExtResource("9_kvpfn")]
-position = Vector2(76, 28)
-scale = Vector2(1.89608, 1.89608)
+position = Vector2(177, 27)
+scale = Vector2(4.57227, 4.57227)
 frame = 5
 
 [node name="Highscore" type="Label" parent="HUD/GameManager"]
