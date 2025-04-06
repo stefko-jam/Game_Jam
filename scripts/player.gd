@@ -5,6 +5,7 @@ const JUMP_VELOCITY = -400.0
 
 @onready var anim_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var jump_timer: Timer = $JumpTimer
+@export var x_position: float
 
 var pending_jump := false
 var was_on_floor := false
@@ -33,8 +34,9 @@ func _physics_process(delta: float) -> void:
 			velocity.x = direction * SPEED
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
-
 		move_and_slide()
+		
+	x_position = position.x
 
 func _on_jump_timer_timeout():
 	pending_jump = false

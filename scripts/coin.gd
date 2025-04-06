@@ -11,7 +11,7 @@ func _ready() -> void:
 	
 
 func _on_body_entered(body: Node2D) -> void:
-	if game_manager != null:
+	if body.name == "Player" and game_manager != null:
 		game_manager.add_point()
 		print($AnimationPlayer)
 		print("+ 1 coin")

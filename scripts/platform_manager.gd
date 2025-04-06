@@ -47,7 +47,7 @@ func generatePlatform(x: int, y: int) -> Node:
 
 func spawnNewPlatform():
 	var x = randi_range(-100, 100)
-	var y = highestPlatformPostiion - randi_range(2, 10) * 6
+	var y = highestPlatformPostiion - randi_range(2, 10) * 5
 	highestPlatformPostiion = y;
 	var platform = generatePlatform(x, y)
 
@@ -63,7 +63,7 @@ func spawnNewPlatform():
 		
 		#randi_range(0, 1) == 1 if coinScene.instantiate() else negativeCoinScene.instantiate();
 		coin.position = Vector2(0, -10)
-		coin.coin_type = randi_range(0, 4)
+		coin.coin_type = randi_range(0, 1)
 		coin.game_manager = %GameManager
 		platform.add_child(coin)
 		

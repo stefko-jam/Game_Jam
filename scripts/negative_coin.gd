@@ -9,7 +9,7 @@ func _ready() -> void:
 	$AnimatedSprite2D.frame = coin_type
 	
 func _on_body_entered(body: Node2D) -> void:
-	if (game_manager != null):
+	if body.name == "Player" and game_manager != null:
 		game_manager.substract_point()
 		print("-1 coin")
 		$AnimationPlayer.play("pickup")
