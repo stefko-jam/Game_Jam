@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ds35ysd6bi34t" path="res://scenes/game_over.gd" id="1_xeevv"]
 [ext_resource type="Texture2D" uid="uid://og58767e3hhf" path="res://assets/sprites/death_screen.png" id="2_wqhvx"]
-[ext_resource type="Theme" uid="uid://dbik2ws2p45a1" path="res://assets/styles/theme_button.tres" id="3_tbwuq"]
+[ext_resource type="Theme" uid="uid://dbik2ws2p45a1" path="res://styles/theme_button.tres" id="3_tbwuq"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wqhvx"]
 texture = ExtResource("2_wqhvx")

@@ -19,9 +19,9 @@ func _on_restart_pressed() -> void:
 	get_tree().reload_current_scene()
 	AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), false)  # unmute
 
-
 func _process(delta: float) -> void:
 	var player_position = %Player.position.y +28
 	if player_position < highscore:
 		highscore = player_position
-	$HighscoreLabel.text = "Highscore: " + str(abs(int(highscore)))
+		$HighscoreLabel.text = "Highscore: " + str(abs(int(highscore)))
+	

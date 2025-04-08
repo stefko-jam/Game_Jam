@@ -17,6 +17,11 @@ boot_splash/image="uid://cqq3rcgus1p8c"
 config/icon="uid://d3svo16fioxlq"
 boot_splash/minimum_display_time=3000
 
+[autoload]
+
+Global="*res://global.gd"
+HighscoreManager="*res://scripts/HighscoreManager.gd"
+
 [display]
 
 window/size/viewport_width=480

@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://chhw2gahxwmkr" path="res://assets/sprites/Polution_oil_stain_screen4.png" id="11_kvuet"]
 [ext_resource type="Texture2D" uid="uid://dtimhjlqq1cum" path="res://assets/sprites/Polution_oil_stain_screen2.png" id="12_ca42v"]
 [ext_resource type="Texture2D" uid="uid://dgifrcimxnxqe" path="res://assets/sprites/Polution_oil_stain_screen3.png" id="13_rysoc"]
+[ext_resource type="Script" uid="uid://cdvjhldyuua6i" path="res://scripts/http_request.gd" id="17_rysoc"]
 [ext_resource type="PackedScene" uid="uid://dppklqs4ogyvi" path="res://scenes/highscore_manager.tscn" id="17_ssvqc"]
 
 [sub_resource type="TileSet" id="TileSet_0tnpc"]
@@ -63,8 +64,6 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
-
-[sub_resource type="GDScript" id="GDScript_rysoc"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_gee14")
@@ -176,7 +175,6 @@ offset_bottom = -119.0
 [node name="HighscoreManager" parent="Highscore" instance=ExtResource("17_ssvqc")]
 
 [node name="HTTPRequest" type="HTTPRequest" parent="Highscore/HighscoreManager"]
-script = SubResource("GDScript_rysoc")
+script = ExtResource("17_rysoc")
 
-[connection signal="request_completed" from="Highscore/HighscoreManager/HTTPRequest" to="Highscore/HighscoreManager" method="_on_http_request_request_completed"]
 [connection signal="request_completed" from="Highscore/HighscoreManager/HTTPRequest" to="Highscore/HighscoreManager/HTTPRequest" method="_on_request_completed"]
