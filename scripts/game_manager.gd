@@ -10,8 +10,6 @@ func _process(delta: float) -> void:
 		highscore = player_position
 	score_label.text = str(abs(int(highscore)))
 	
-
-
 func add_point():
 	score = min(score + 1, 11) 
 	handleChange()

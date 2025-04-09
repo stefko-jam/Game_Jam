@@ -43,11 +43,11 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_wqhvx")
 [node name="HighscoreLabel" type="Label" parent="."]
 modulate = Color(0.0269716, 0.0816707, 0.0460757, 1)
 layout_mode = 2
-offset_left = 159.0
-offset_top = 393.0
-offset_right = 174.0
-offset_bottom = 416.0
-scale = Vector2(1.4117, 1.4117)
+offset_left = 158.0
+offset_top = 398.0
+offset_right = 173.0
+offset_bottom = 421.0
+scale = Vector2(1.22782, 1.22782)
 text = "hi"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
@@ -74,3 +74,17 @@ text = "Restart"
 layout_mode = 2
 theme = ExtResource("3_tbwuq")
 text = "Quit"
+
+[node name="EnterUserName" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 180.0
+offset_top = 131.0
+offset_right = 310.0
+offset_bottom = 190.0
+
+[node name="SubmitNameButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 211.0
+offset_top = 198.0
+offset_right = 285.0
+offset_bottom = 272.0
