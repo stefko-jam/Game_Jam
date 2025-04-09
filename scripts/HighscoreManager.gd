@@ -2,6 +2,7 @@ extends Node
 
 signal highscore_accepted
 signal highscore_rejected
+signal highscores_fetched(data: Array)
 
 enum RequestType { NONE, GET_CHECK, POST_SCORE }
 
@@ -23,7 +24,7 @@ func _ready():
 			http_request.request_completed.connect(_on_http_request_request_completed)
 		print("✅ HTTPRequest connected.")
 	else:
-		print("HTTPRequest not found!")
+		print("❌ HTTPRequest not found!")
 
 func set_player_reference(p: Node2D):
 	player = p
@@ -40,7 +41,7 @@ func _process(_delta):
 # 🧠 Step 1: Check if score is good enough
 func check_if_qualifies_for_highscore():
 	if not http_request or http_request.get_http_client_status() != HTTPClient.STATUS_DISCONNECTED:
-		print("Cannot check – HTTP busy or missing.")
+		print("❌ Cannot check – HTTP busy or missing.")
 		return
 
 	current_request_type = RequestType.GET_CHECK
@@ -50,11 +51,11 @@ func check_if_qualifies_for_highscore():
 # 🧾 Step 2: Actually submit the name & score
 func submit_score():
 	if score_submitted:
-		print("Already submitted.")
+		print("❌ Already submitted.")
 		return
 
 	if not http_request or http_request.get_http_client_status() != HTTPClient.STATUS_DISCONNECTED:
-		print("Cannot send POST – busy or missing.")
+		print("❌ Cannot send POST – busy or missing.")
 		return
 
 	current_request_type = RequestType.POST_SCORE
@@ -71,32 +72,33 @@ func submit_score():
 
 	var headers = ["Content-Type: application/x-www-form-urlencoded"]
 
-	print("Sending POST to:", API_URL)
-	print("Body:", form_encoded_string)
+	print("🚀 Sending POST to:", API_URL)
+	print("📦 Body:", form_encoded_string)
 
 	http_request.request(API_URL, headers, HTTPClient.METHOD_POST, form_encoded_string)
 
 # 🌐 Handle both GET and POST responses
 func _on_http_request_request_completed(result: int, response_code: int, headers: PackedStringArray, body: PackedByteArray) -> void:
-	print("Request completed.")
+	print("✅ Request completed. Response code:", response_code)
 	var response_text := body.get_string_from_utf8()
+	print("🌐 Server response:", response_text)
 
 	match current_request_type:
 		RequestType.POST_SCORE:
 			current_request_type = RequestType.NONE
 
 			if response_code != 200:
-				print("Fehler beim Highscore-POST:", response_code)
+				print("❌ Fehler beim Highscore-POST:", response_code)
 				return
 
 			if "Highscore added" in response_text:
-				print("Highscore accepted!")
+				print("🏆 Highscore accepted!")
 				emit_signal("highscore_accepted")
 			elif "Score not high enough" in response_text:
-				print("Score not high enough for Top 10.")
+				print("😢 Score not high enough for Top 10.")
 				emit_signal("highscore_rejected")
 			else:
-				print("⚠Unbekannte Antwort:", response_text)
+				print("⚠️ Unbekannte Antwort:", response_text)
 
 		RequestType.GET_CHECK:
 			current_request_type = RequestType.NONE
@@ -115,10 +117,13 @@ func _on_http_request_request_completed(result: int, response_code: int, headers
 				return
 
 			var data = json.data
-			print("Highscore List:")
+			print("📋 Highscore List:")
 			for i in data.size():
 				print("%d. %s – %s" % [i + 1, data[i][0], data[i][1]])
 
+			emit_signal("highscores_fetched", data)
+
+			# Compare current score
 			var lowest_score = INF
 			for row in data:
 				var score = int(row[1])
@@ -126,11 +131,21 @@ func _on_http_request_request_completed(result: int, response_code: int, headers
 					lowest_score = score
 
 			if data.size() < 10 or abs(highscore) > lowest_score:
-				print("You did it! Your score is accepted for the top 10 List")
+				print("✅ You made it into the Top 10!")
 				emit_signal("highscore_accepted")
 			else:
-				print("Your score is not enough! Try again!")
+				print("⬇️ Score not high enough.")
 				emit_signal("highscore_rejected")
 
 		_:
 			print("⚠️ Kein Request-Typ gesetzt oder unbekannt.")
+
+# 📥 Called to manually fetch highscore list for display (without checking score)
+func fetch_highscores():
+	if not http_request or http_request.get_http_client_status() != HTTPClient.STATUS_DISCONNECTED:
+		print("❌ Cannot fetch – HTTP busy or missing.")
+		return
+
+	current_request_type = RequestType.GET_CHECK
+	print("📥 Fetching highscore list for display...")
+	http_request.request(API_URL, [], HTTPClient.METHOD_GET, "")

@@ -1,11 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://n75x0vagelgt"]
+[gd_scene load_steps=7 format=3 uid="uid://n75x0vagelgt"]
 
 [ext_resource type="Script" uid="uid://ds35ysd6bi34t" path="res://scenes/game_over.gd" id="1_xeevv"]
 [ext_resource type="Texture2D" uid="uid://og58767e3hhf" path="res://assets/sprites/death_screen.png" id="2_wqhvx"]
 [ext_resource type="Theme" uid="uid://dbik2ws2p45a1" path="res://styles/theme_button.tres" id="3_tbwuq"]
+[ext_resource type="FontFile" uid="uid://dffxn7c1wep60" path="res://assets/fonts/editundo/editundo.ttf" id="4_racf3"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wqhvx"]
 texture = ExtResource("2_wqhvx")
+
+[sub_resource type="Theme" id="Theme_7m3ot"]
 
 [node name="GameOver" type="Control"]
 layout_mode = 3
@@ -77,14 +80,87 @@ text = "Quit"
 
 [node name="EnterUserName" type="LineEdit" parent="."]
 layout_mode = 0
-offset_left = 180.0
-offset_top = 131.0
-offset_right = 310.0
-offset_bottom = 190.0
+offset_left = 135.0
+offset_top = 124.0
+offset_right = 265.0
+offset_bottom = 183.0
+scale = Vector2(1.88935, 1.04772)
 
 [node name="SubmitNameButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 211.0
+offset_left = 197.0
 offset_top = 198.0
-offset_right = 285.0
+offset_right = 271.0
 offset_bottom = 272.0
+scale = Vector2(1.40539, 0.937106)
+text = "Submit"
+
+[node name="EnterNameLabel" type="Label" parent="."]
+modulate = Color(0.0269716, 0.0816707, 0.0460757, 1)
+offset_left = -19.0
+offset_top = 35.0
+offset_right = 406.0
+offset_bottom = 106.0
+scale = Vector2(1.22782, 1.22782)
+theme = SubResource("Theme_7m3ot")
+theme_type_variation = &"HeaderSmall"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.970602, 0.970602, 0.970602, 1)
+theme_override_colors/font_outline_color = Color(0.935536, 0.935536, 0.935536, 1)
+text = "Congrats, you made it on the top 10! 
+Enter your name here please:"
+horizontal_alignment = 1
+
+[node name="HighscoreListLabel" type="Label" parent="."]
+modulate = Color(0.0269716, 0.0816707, 0.0460757, 1)
+offset_left = 42.0
+offset_top = 567.0
+offset_right = 151.0
+offset_bottom = 590.0
+scale = Vector2(3.56056, 3.56056)
+theme_override_colors/font_color = Color(0.982343, 0.982342, 0.982342, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_racf3")
+text = "Highscore List"
+
+[node name="HighscoreButton" type="Button" parent="HighscoreListLabel"]
+layout_mode = 0
+offset_left = 4.07226
+offset_top = 3.25782
+offset_right = 12.0723
+offset_bottom = 11.2578
+scale = Vector2(13.5232, 2.32906)
+
+[node name="HighscorePanel" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(11.9573, 20.0944)
+
+[node name="TitleLabel" type="Label" parent="HighscorePanel"]
+layout_mode = 0
+offset_left = 3.26159
+offset_top = -0.995301
+offset_right = 81.2616
+offset_bottom = 22.0047
+scale = Vector2(0.436823, 0.436823)
+text = "Highscore"
+
+[node name="HighscoreListContainer" type="VBoxContainer" parent="HighscorePanel"]
+layout_mode = 0
+offset_left = 3.93064
+offset_top = 9.70418
+offset_right = 43.9306
+offset_bottom = 49.7042
+scale = Vector2(0.143828, 0.0838482)
+
+[node name="BackButton" type="Button" parent="HighscorePanel"]
+layout_mode = 0
+offset_left = 24.5874
+offset_top = 34.2881
+offset_right = 69.5874
+offset_bottom = 65.2881
+scale = Vector2(0.283857, 0.142777)
+text = "Back"
